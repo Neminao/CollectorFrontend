@@ -1,0 +1,75 @@
+.product-item-wrapper {
+    height: 400px;
+    width: 250px;
+    background-color: black;
+    display: flex;
+    padding: 0 5px;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    margin: 5px;
+    text-decoration: none;
+    color: whitesmoke;
+    position: relative;
+    border: solid 1px transparent;
+    transition: all 0.5s ease;
+    font-size: 12px;
+}
+.imgContainer {
+    height: 240px;
+    width: 240px;
+    position: relative;
+    
+}
+h4 {
+    text-align: center;
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+.product-item-wrapper a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+a h4:hover {
+    color: aquamarine;
+}
+
+.product-item-wrapper:hover {
+    border: solid 1px whitesmoke;
+}
+ .imgContainer::after {
+    content: 'Visit page';
+    position: absolute;
+    text-align: center;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.54);
+    height: 240px;
+    width: 240px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    transition: all 0.5s ease;
+    opacity: 0;
+    font-size: 15px;
+    font-weight: bold;
+    color: rgb(150, 61, 165);
+}
+.imgContainer:hover::after {
+    visibility: visible;
+    opacity: 1;
+}
+
+td a {
+    color: palevioletred;
+    align-items: flex-start !important;
+}
+td a:hover {
+    color: whitesmoke
+}

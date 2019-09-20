@@ -1,0 +1,57 @@
+<div class="displayPage" *ngIf="products && products[0]">
+  <div class="displayInner" *ngFor="let product of products">
+    <h2>{{ product.productName }}</h2>
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            Name:
+          </td>
+          <td>
+            {{ product.productName }}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Brand:
+          </td>
+          <td>
+            {{ product.productBrand }}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Code:
+          </td>
+          <td>
+            {{ product.productCode }}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Regular price:
+          </td>
+          <td>
+            {{ product.productRegularPrice }}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Current price:
+          </td>
+          <td>
+            {{ product.productPrice }}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Store:
+          </td>
+          <td>
+            {{ product.productStore }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+.navbarInnerContainer {
+    height: 200px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.navbarInnerLink {
+    text-decoration: none;
+    color: palevioletred;
+    background: transparent;
+    border: none;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 14px;
+}
+
+.navbarInnerLink:hover {
+    color: whitesmoke;
+}
+.navbarInnerImg{
+    height: 150px;
+    width: 280px;
+    background-color: whitesmoke;
+
+}

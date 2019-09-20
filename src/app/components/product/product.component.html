@@ -1,0 +1,35 @@
+<div class="product-item-wrapper">
+  <a href="{{ product.productLink }}">
+    
+    <div class="imgContainer">
+      <img src="{{ product.productImgLink }}" />
+    </div>
+  </a>
+  <table>
+    <tbody>
+      <tr>
+        <td>
+          <a [routerLink]="['/products', product.productBrand]">{{ product.productBrand }}</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a [routerLink]="['/item', product.productCode]">{{ product.productCode }}</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          {{ product.productPrice }} 
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="/">{{ product.productStore }}</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+

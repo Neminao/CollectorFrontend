@@ -1,0 +1,46 @@
+.productsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    overflow: hidden;
+    width: 100%;
+}
+.productsPage {
+    display: flex;
+    margin-left: 200px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.searchBox{
+    display: flex;
+    width: 100%;
+}
+
+.pageNavigation {
+    display: flex;
+}
+
+.pageNavigation button{
+    background: transparent;
+    height: 25px;
+    width: 25px;
+    border: none;
+    color: whitesmoke;
+    font-size: 15px;
+}
+
+.pageNavigation button:focus {
+    outline-color: lightyellow;
+}
+
+.pageNavigation button:hover{
+    color: #F1C40F;
+    border-bottom: solid 1px #F1C40F;
+}
+
+.current {
+    color: #F1C40F !important;
+    font-weight: bold;
+}

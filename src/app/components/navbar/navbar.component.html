@@ -1,0 +1,29 @@
+<nav id='nav' (click)="navbarClick($event)">
+  <div class="navbarLogo">
+    <h1>{{ title }}</h1>
+  </div>
+  <div [ngClass]="showDropdown?'dropdown dropdownShow':'dropdown'">
+      <div class='storeDropdown' [style.width.px]='width'>
+    <app-filter brand="adidas"></app-filter>
+    <app-filter brand="Nike"></app-filter>
+    <app-filter brand="Puma"></app-filter>
+    <app-filter brand="RANG"></app-filter>
+    <app-filter brand="Kappa"></app-filter>
+    <app-filter brand="Silver"></app-filter>
+    <app-filter brand="Reebok"></app-filter>
+    <app-filter brand="Ellesse"></app-filter>
+    <app-filter brand="Slazenger"></app-filter>
+  </div>
+  </div>
+  <div [ngClass]="showDropdownStore?'dropdown dropdownShow':'dropdown'">
+    <div class='storeDropdown' [style.width.px]='width'>
+      <a routerLink="/products/all" >Planeta</a>
+    </div>
+    </div>
+  <div class='navbarItems'>
+    <a class='navbarLink' routerLink="/">Home</a>
+    <a class='navbarLink' routerLink="/products/all" >All products</a>
+    <a class='navbarLink' id='brands' (click)="setShowDropdown($event)">Brands</a>
+    <a class='navbarLink' id='stores' (click)="setShowDropdown($event)">Shops</a>
+  </div>
+</nav>
