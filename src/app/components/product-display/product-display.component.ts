@@ -17,14 +17,18 @@ export class ProductDisplayComponent implements OnInit {
     private mySqlService: MySQLService
   ) {}
 
+  setProducts = (values) => {
+    this.products = values;
+  }
+
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.productCode = params.productCode;
     });
     setTimeout(() => {
       this.mySqlService
-        .getProducts()
-        .subscribe(products => (this.products = products.filter(product => product.productCode === this.productCode)));
+        .getProductsByCode(this.productCode, this.setProducts);
+        // .subscribe(products => (this.products = products.filter(product => product.productCode === this.productCode)));
     }, 1000);
   }
 }

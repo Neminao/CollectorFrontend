@@ -12,7 +12,7 @@ import { switchMap } from 'rxjs/operators';
 })
 export class ProductsContainerComponent implements OnInit {
   products: Product[];
-  allProducts: Product[];
+  allProducts: any;
   filteredProducts: Product[];
   filters: string[];
   filter: string;
@@ -22,6 +22,7 @@ export class ProductsContainerComponent implements OnInit {
   numberOfPages: number;
   pagesArray: number[];
   searchTerm: string;
+  inputPage: string;
   constructor(
     private mySQLService: MySQLService,
     private route: ActivatedRoute
@@ -45,7 +46,7 @@ export class ProductsContainerComponent implements OnInit {
       this.filter = params.productBrand;
     });
     this.getProducts();
-    this.generateArray();
+    setTimeout( () => this.generateArray(), 1100);
   }
 
   setPageValues(newValues) {
@@ -57,10 +58,15 @@ export class ProductsContainerComponent implements OnInit {
       this.filter || this.searchTerm ? this.filteredProducts : this.allProducts
     );
   }
+  setProducts = (values) => {
+    console.log(values);
+    this.allProducts = values;
+  }
   getProducts() {
-    this.mySQLService.getProducts().subscribe(products => {
+   /* this.mySQLService.getProducts().subscribe(products => {
       this.allProducts = products;
-    });
+    });*/
+    this.mySQLService.getProducts(this.setProducts);
     setTimeout(() => {
       this.products = this.setProductsPerPage(
         this.currentPage,
@@ -118,23 +124,37 @@ export class ProductsContainerComponent implements OnInit {
   }
 
   generateArray() {
-    setTimeout(() => {
       // tslint:disable-next-line:prefer-const
       let temp: number[] = [];
-      for (let i = 1; i <= this.numberOfPages; i++) {
+      console.log(this.currentPage);
+      console.log(this.numberOfPages);
+      for (let i = this.currentPage - 2; i <= this.currentPage + 2; i++) {
+        if (i > 0 && i <= this.numberOfPages) {
         temp.push(i);
+        }
       }
       this.pagesArray = temp;
-    }, 1000);
   }
 
   setPage(event) {
-    this.currentPage = event.target.value;
+    this.currentPage = +event.target.value;
+    console.log(this.currentPage);
     this.products = this.setProductsPerPage(
       this.currentPage,
       this.itemsPerPage,
       this.filter || this.searchTerm ? this.filteredProducts : this.allProducts
     );
+    this.generateArray();
+  }
+
+  setPageInput() {
+    this.currentPage = +this.inputPage;
+    this.products = this.setProductsPerPage(
+      this.currentPage,
+      this.itemsPerPage,
+      this.filter || this.searchTerm ? this.filteredProducts : this.allProducts
+    );
+    this.generateArray();
   }
 
   search(event) {

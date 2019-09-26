@@ -20,6 +20,7 @@
 
 .pageNavigation {
     display: flex;
+    align-items: center;
 }
 
 .pageNavigation button{
@@ -29,6 +30,7 @@
     border: none;
     color: whitesmoke;
     font-size: 15px;
+
 }
 
 .pageNavigation button:focus {
@@ -43,4 +45,19 @@
 .current {
     color: #F1C40F !important;
     font-weight: bold;
+}
+
+.pageForm input {
+    margin-left: 5px;
+    background: transparent;
+    color: whitesmoke;
+    border: solid 1px #F1C40F;
+    padding: 5px;
+    width: 30px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 15px;
+}
+
+.pageForm input:focus {
+    outline-color: #F1C40F;
 }

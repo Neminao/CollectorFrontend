@@ -13,6 +13,9 @@
     <div *ngFor="let page of pagesArray">
       <button [ngClass]="{'current': page == currentPage}" value="{{ page }}" (click)="setPage($event)">{{ page }}</button>
     </div>
+    <form class='pageForm' (ngSubmit)="setPageInput()" >
+      <input type="text" id="inputPage" name="inputPage" [(ngModel)]="inputPage" autocomplete="off" />
+    </form>
   </div>
 </div>
 

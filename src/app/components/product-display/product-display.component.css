@@ -1,3 +1,52 @@
 .displayPage {
-    margin-left: 201px;
+  margin-left: 201px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 0 10px 10px 10px;
+}
+
+.displayInner {
+  margin: 10px;
+  border: 1px solid #F1C40F;
+  width: 95%;
+  padding: 0 20px 20px 20px;
+}
+.displayInner:hover {
+  border-color: whitesmoke;
+}
+
+.displayInner a {
+  color: palevioletred;
+  text-decoration: none;
+}
+
+.displayInner a:hover {
+  color: whitesmoke;
+}
+
+.displayImg {
+  height: 240px;
+  width: 240px;
+  object-position: center;
+  border: 3px solid #F1C40F;
+}
+
+.displayInner h2 {
+  color: whitesmoke;
+}
+
+.displayRegularPrice {
+    color: whitesmoke;
+    margin: 10px 0;
+}
+.displayPriceTitle{
+    color: #F1C40F;
+}
+.displayDiscountPrice{
+    margin: 10px 0;
+}
+.displayDiscountPrice h3{
+    margin: 0
 }

@@ -21,6 +21,11 @@
     position: relative;
     
 }
+.imgContainer img{
+    height: 240px;
+    width: 240px;
+    object-position: center;
+}
 h4 {
     text-align: center;
     text-decoration: none;
