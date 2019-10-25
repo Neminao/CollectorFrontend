@@ -1,37 +1,90 @@
 <div class="displayPage" *ngIf="products && products[0]">
-  <div>
-    <img class="displayImg" src="{{ products[0].productImgLink }}" />
-  </div>
-  <div class="displayInner" *ngFor="let product of products">
-    <h2>
-      <a href="{{ product.productLink }}">{{ product.productName }}</a>
-    </h2>
-    <div>
-      <a href="{{ product.productLink }}">{{ product.productCode }}</a>
-    </div>
-    <div>
-      <a [routerLink]="['/products', product.productBrand]">{{
-        product.productBrand
-      }}</a>
-    </div>
-    <div class='displayRegularPrice'>
-      <div class='displayPriceTitle'>
-        Regular price:
+  <div class="displayContainer">
+    <div class="displayDetails">
+      <div class="displayImgContainer">
+        <img class="displayImg" src="{{ products[0].productImgLink }}" />
+        <button id="btn" (click)="addToFavorites()" class="favButton">
+          <span id="btn"
+            ><i id="btn" [ngClass]="isFav ? 'heartFilled' : 'heartEmpty'"></i
+          ></span>
+        </button>
       </div>
       <div>
-        {{ product.productRegularPrice }}
-      </div>
+      <table>
+        <tbody>
+          <tr>
+            <td class="yellowFont detailsTitle">Code:</td>
+            <td>{{ products[0].productCode }}</td>
+          </tr>
+          <tr>
+            <td class="yellowFont detailsTitle">Brand:</td>
+            <td>
+              <a [routerLink]="['/products', products[0].productBrand, 1]">{{
+                products[0].productBrand
+              }}</a>
+            </td>
+          </tr>
+          <tr>
+            <td class="yellowFont detailsTitle">Type:</td>
+            <td>{{ products[0].productType }}</td>
+          </tr>
+          <tr>
+            <td class="yellowFont detailsTitle">Gender:</td>
+            <td>{{ products[0].productGender }}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-    <div class='displayDiscountPrice'>
-      <div class='displayPriceTitle'>
-        Current price:
-      </div>
-      <div>
-        <h3>{{ product.productPrice }}</h3>
-      </div>
     </div>
-    <div>
-      {{ product.productStore }}
+    <div class="verticalLine"></div>
+    <div class="displayPricing">
+      <table>
+        <tr>
+          <td colspan="4" class="lineTd">
+            <div class="lineDiv"></div>
+          </td>
+        </tr>
+        <ng-container *ngFor="let product of products">
+          <ng-container *ngIf="product.productPrice > 0">
+            <tr>
+              <td class="yellowFont hide">
+                Visit page
+              </td>
+              <td colspan="3">
+                <a (click)="openLink(product.productLink)">{{
+                  product.productName
+                }}</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="yellowFont hide">
+                Pricing
+              </td>
+              <td class="yellowFont">Current Price</td>
+              <td *ngIf="product.productRegularPrice > 0" class="yellowFont">
+                Regular Price
+              </td>
+              <td class="yellowFont">Store</td>
+            </tr>
+            <tr>
+              <td class="hide" ><div [ngClass]="{'bestPrice': product.productPrice == minPrice }"></div></td>
+              <td [ngClass]="{'bold': product.productPrice == minPrice }">{{ product.productPrice }} rsd</td>
+              <td *ngIf="product.productRegularPrice > 0">
+                {{ product.productRegularPrice }} rsd
+              </td>
+              <td>
+                <a (click)="openLink(product.productLink)">
+                <img class='miniLogo' [src]="logos[product.productStore]" /></a>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="4" class="lineTd">
+                <div class="lineDiv"></div>
+              </td>
+            </tr>
+          </ng-container>
+        </ng-container>
+      </table>
     </div>
   </div>
 </div>

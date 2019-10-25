@@ -8,6 +8,7 @@ import {Router} from '@angular/router';
 })
 export class FilterComponent implements OnInit {
   @Input() brand: string;
+  @Input() store: string;
   constructor(public router: Router) { }
 
   ngOnInit() {
@@ -15,7 +16,7 @@ export class FilterComponent implements OnInit {
 
   onSubmit() {
     this.router.navigateByUrl('/', {skipLocationChange: true}).then(() =>
-    this.router.navigate(['products', this.brand]));
+    this.brand ? this.router.navigate(['products', this.brand, 1]) : this.router.navigate(['store', this.store, 1]));
   }
 
 }

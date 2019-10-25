@@ -1,0 +1,301 @@
+.carouselWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 50%;
+  height: 300px;
+  text-transform: none;
+  position: relative;
+  margin-left: 20px;
+  z-index: 1;
+}
+
+.carouselBrand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45%;
+  height: 300px;
+  text-transform: none;
+  position: relative;
+}
+.carouselBrand a {
+  text-decoration: none;
+  color: whitesmoke;
+}
+.carouselBrand a:hover {
+  color: palevioletred;
+}
+
+.carousel {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item {
+  font-family: "Righteous", cursive;
+  letter-spacing: 4px;
+  height: 60px;
+  width: 500px;
+  padding: 0px;
+  text-align: right;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: absolute;
+  font-size: 48px;
+  -moz-transform-origin: 0 0;
+  transform-origin: 0 0;
+}
+
+
+.largePos {
+  top: 120px;
+}
+.large {
+  color: #f1c40f;
+}
+
+.small {
+  color: rgb(196, 159, 14);
+  opacity: 1;
+}
+
+.medium {
+  color: palevioletred;
+}
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.animate {
+  transition: all 0.5s ease-in-out;
+}
+
+.upButton {
+  top: -50px;
+}
+.downButton {
+  top: 300px;
+}
+button {
+  position: absolute;
+  left: 20px;
+  color: palevioletred;
+  border: 1px solid transparent;
+  height: 50px;
+  width: 50px;
+  background: transparent;
+  font-size: 25px;
+}
+
+.mTop {
+  top: 60px;
+}
+
+.mBot {
+  top: 180px;
+}
+
+.sTop {
+  top: 0px;
+}
+.sBot {
+  top: 240px;
+}
+
+.hTop {
+  top: -60px;
+}
+
+.hBot {
+  top: 300px;
+}
+
+.moveDown {
+  transform: translateY(60px);
+}
+
+.moveUp {
+  transform: translateY(-60px);
+}
+
+.displayContainer {
+  width: 98%;
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-start;
+  margin-top: 90px;
+  overflow: auto;
+  height: 350px;
+  flex-wrap: nowrap !important;
+  z-index: 1;
+}
+.productContainer {
+  height: 300px;
+  width: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  border: 2px solid palevioletred;
+  margin: 0 2px;
+  position: relative;
+}
+.productContainer img {
+  width: 220px;
+  height: 300px;
+  object-fit: cover;
+  margin: 0;
+ 
+}
+
+.productContainer:hover{
+  border-color: #f1c40f;
+}
+
+.productContainer h4 {
+  height: 60px;
+  margin: 0;
+  background: rgba(0, 0, 0, 0.425);
+  position: absolute;
+  width: 220px;
+  font-size: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+}
+
+.productContainer a {
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: palevioletred;
+  text-decoration: none;
+}
+.productContainer a:hover {
+  color: whitesmoke;
+}
+
+.iconUp {
+  position: absolute;
+  background-image: url(../../../icons8-double-up-50.png);
+  height: 50px;
+  width: 50px;
+  top: 0;
+  left: 0;
+}
+
+.iconDown {
+  position: absolute;
+  background-image: url(../../../icons8-double-down-50.png);
+  height: 50px;
+  width: 50px;
+  bottom: 0;
+  left: 0;
+}
+
+.carouselBrand img {
+  height: 300px;
+  width: 300px;
+  object-fit: contain;
+}
+
+@media screen and (max-width: 1500px) {
+
+  .carouselBrand,
+  .carouselBrand img {
+    width: 250px;
+    height: 150px;
+  }
+  .carouselWrapper {
+    width: 500px;
+  }
+  .displayContainer {
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .carousel {
+    flex-direction: column;
+    align-items: center;
+  }
+  .carouselBrand {
+    margin-top: 70px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .item {
+    width: 400px;
+  }
+  
+
+  .carouselWrapper {
+    width: 400px;
+  }
+  .carousel {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .carouselWrapper {
+    width: 90%;
+    height: 200px;
+  }
+  .item {
+    width: 100%;
+    height: 40px;
+    font-size: 30px
+  }
+  .largePos {
+    top: 80px;
+  }
+  .mTop {
+    top: 40px;
+  }
+
+  .mBot {
+    top: 120px;
+  }
+
+  .sTop {
+    top: 0px;
+  }
+  .sBot {
+    top: 160px;
+  }
+
+  .hTop {
+    top: -40px;
+  }
+
+  .hBot {
+    top: 200px;
+  }
+  .moveDown {
+    transform: translateY(40px);
+  }
+  
+  .moveUp {
+    transform: translateY(-40px);
+  }
+
+  .downButton {
+    top: 200px;
+  }
+
+  .displayContainer {
+    display: none;
+  }
+}

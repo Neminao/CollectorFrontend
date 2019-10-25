@@ -1,35 +1,73 @@
 .product-item-wrapper {
-    height: 400px;
+    height: 370px;
     width: 250px;
-    background-color: black;
+    background-color: transparent;
     display: flex;
-    padding: 0 5px;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     flex-direction: column;
     margin: 5px;
     text-decoration: none;
     color: whitesmoke;
     position: relative;
     border: solid 1px transparent;
-    transition: all 0.5s ease;
+    transition: all 0.75s ease;
     font-size: 12px;
 }
+.textContainer {
+    width: 224px;
+}
+table {
+    width: 100%;
+}
+.heartEmpty{
+    position: absolute;
+    background-image: url(../../../icons8-heart-50.png);
+    height: 30px;
+    width: 30px;
+    top: 0;
+    left: 0;
+    z-index: 20;
+    background-size: contain;
+}
+
+.favButton {
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    bottom: 10px;
+    right: 10px;
+    z-index: 20;
+    background-size: contain;
+    border: none;
+    background: none;
+    padding: 0;
+    opacity: 0;
+    visibility: hidden;
+}
 .imgContainer {
-    height: 240px;
-    width: 240px;
+    height: 220px;
+    width: 220px;
     position: relative;
-    
+    margin-top: 5px;  
+    border: 2px solid palevioletred;
+    overflow: hidden;
 }
 .imgContainer img{
-    height: 240px;
-    width: 240px;
+    height: 220px;
+    width: 220px;
     object-position: center;
+    object-fit: cover;
+    transition: all 0.5s ease;
 }
 h4 {
     text-align: center;
     text-decoration: none;
     color: whitesmoke;
+}
+
+.rowMulti {
+    width: 25%;
 }
 
 .product-item-wrapper a {
@@ -45,17 +83,17 @@ a h4:hover {
 }
 
 .product-item-wrapper:hover {
-    border: solid 1px whitesmoke;
+    border: solid 1px #F1C40F;
 }
  .imgContainer::after {
-    content: 'Visit page';
+    content: 'See product';
     position: absolute;
     text-align: center;
-    top: 0;
-    left: 0;
+    top: 0px;
+    left: 0px;
     background-color: rgba(0, 0, 0, 0.54);
-    height: 240px;
-    width: 240px;
+    height: 220px;
+    width: 220px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -64,17 +102,70 @@ a h4:hover {
     opacity: 0;
     font-size: 15px;
     font-weight: bold;
-    color: rgb(150, 61, 165);
+    color: palevioletred;
 }
-.imgContainer:hover::after {
+.imgContainer:hover .favButton, .heartEmpty, .heartFilled, .imgContainer:hover::after {
     visibility: visible;
     opacity: 1;
 }
 
-td a {
+.imgContainer:hover .productImg{
+    transform: scale(1.1);
+}
+
+div {
+    width: 100%;
+}
+
+div a, td a {
     color: palevioletred;
     align-items: flex-start !important;
 }
-td a:hover {
+div a:hover, td a:hover {
     color: whitesmoke
+}
+
+.heartFilled {
+    position: absolute;
+    background-image: url(../../../icons8-heart-filled-50.png);
+    height: 30px;
+    width: 30px;
+    top: 0;
+    left: 0;
+    z-index: 20;
+    background-size: contain;
+}
+
+
+
+@media screen and (max-width: 700px){
+    .product-item-wrapper {
+        height: auto;
+        width: 110px;
+        font-size: 9px;
+        justify-content: flex-start;
+        
+    }
+    .imgContainer{
+        margin-bottom: 5px;
+        height: 100px;
+        width: 100px;
+    }
+    .imgContainer img{
+        height: 100px;
+        width: 100px;
+    }
+    .textContainer {
+        width: 104px;
+    }
+    .imgContainer::after{
+        height: 100px;
+        width: 100px;
+    }
+    .favButton, .heartEmpty, .heartFilled {
+        height: 18px;
+        width: 18px;
+        visibility: visible;
+        opacity: 1;
+    }
 }

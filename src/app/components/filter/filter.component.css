@@ -1,10 +1,22 @@
 .navbarInnerContainer {
-    height: 200px;
-    width: 300px;
+    height: 250px;
+    width: 200px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+    margin: 10px;
+
+}
+
+.navbarInnerContainerStore {
+    height: 130px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 10px;
 }
 .navbarInnerLink {
     text-decoration: none;
@@ -13,14 +25,53 @@
     border: none;
     font-family: 'Roboto Mono', monospace;
     font-size: 14px;
+    cursor: pointer;
 }
 
 .navbarInnerLink:hover {
     color: whitesmoke;
 }
 .navbarInnerImg{
-    height: 150px;
-    width: 280px;
-    background-color: whitesmoke;
+    height: 200px;
+    width: 200px;
+    background-color: transparent;
+    object-fit: contain;
 
+}
+.navbarInnerImgStoreContainer {
+    height: 104px;
+    width: 204px;
+    position: relative;
+}
+.navbarInnerImgStore{
+    height: 100px;
+    width: 200px;
+    background-color: whitesmoke;
+    object-fit: contain;
+    border: 2px solid palevioletred;
+}
+
+.navbarInnerImgStoreContainer::after {
+    position: absolute;
+    content: "check products from store";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top:2px;
+    left:2px;
+    height: 100px;
+    width: 200px;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.5s ease;
+    background: rgba(0, 0, 0, 0.745);
+    color: palevioletred;
+    text-align: center;
+    font-family: 'Roboto Mono', sans-serif;
+    font-size: 15px;
+}
+
+.navbarInnerImgStoreContainer:hover::after {
+    opacity: 1;
+    visibility: visible;
 }

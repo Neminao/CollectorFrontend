@@ -1,33 +1,32 @@
 .productsContainer {
     display: flex;
     flex-wrap: wrap;
-    height: 100%;
-    overflow: hidden;
+    height: 75vh;
+    overflow: auto;
     width: 100%;
+    justify-content: center;
+    z-index: 1;
 }
 .productsPage {
     display: flex;
-    margin-left: 200px;
+    margin-left: 300px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.searchBox{
-    display: flex;
-    width: 100%;
-}
 
 .pageNavigation {
     display: flex;
     align-items: center;
+    margin: 10px;
+    z-index: 1;
 }
 
 .pageNavigation button{
     background: transparent;
     height: 25px;
-    width: 25px;
-    border: none;
+    border: solid 1px transparent;
     color: whitesmoke;
     font-size: 15px;
 
@@ -48,7 +47,7 @@
 }
 
 .pageForm input {
-    margin-left: 5px;
+    margin: 0 5px;
     background: transparent;
     color: whitesmoke;
     border: solid 1px #F1C40F;
@@ -56,8 +55,59 @@
     width: 30px;
     font-family: 'Roboto Mono', monospace;
     font-size: 15px;
+    background: black;
 }
 
 .pageForm input:focus {
     outline-color: #F1C40F;
+}
+
+.show {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.61);
+    z-index: 50;
+}
+
+.hide {
+    display: none;
+}
+
+select {
+    padding: 5px;
+    background: black;
+    color: #f1c40f;
+    border: solid 1px #F1C40F;
+    height: 32px;
+    font-size: 15px;
+}
+
+@media screen and (max-width: 700px) {
+    .productsPage {
+        margin-left: 10%;
+        width: 90%;
+    }
+    .productsContainer{
+        width: 90%;
+        justify-content: center;
+        align-items: baseline;
+        overflow-x: hidden;
+    }
+    .pageNavigation button, .pageForm input, select {
+        font-size: 10px;
+    }
+    select{
+        height: 25px;
+    }
+    .pageForm input {
+        width: 20px;
+
+
+    }
+    .pageNavigation button {
+        padding: 1px;
+    }
 }

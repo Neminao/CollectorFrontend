@@ -2,37 +2,69 @@ h1 {
     color: whitesmoke;
     align-self: flex-start;
     text-align: left;
-    margin-left: 20px;
+    width: 180px;
+    padding: 20px 10px;
+    font-size: 35px;
+    margin-bottom: 0px;
 }
 nav {
    min-height: 100vh;
    position: fixed;
    top: 0;
-   width: 200px;
+   width: 300px;
    left: 0;
-   z-index: 5; 
+   bottom: 0;
+   z-index: 100; 
    display: flex;
    flex-direction: column;
    justify-content: flex-start;
    align-items: center;
    background-color: black;
    border-right: 1px solid #F1C40F;
-   
+   font-family: 'Special Elite', cursive;
+   font-weight: bold;
+ 
+}
+
+select {
+  width: 100%;
+  color: whitesmoke;
+  background: black;
+  border-color: #F1C40F;
+  font-family: 'Roboto Mono', sans-serif;
+}
+option:hover {
+  background: #F1C40F;
+  color: black;
+}
+
+.resetBtn {
+    border: none;
+    background: transparent;
+    color: #F1C40F;
+    padding: 5px 2px;
+}
+.resetBtn:hover{
+    color: whitesmoke;
 }
 .navbarItems {
     display: flex;
     flex-direction: column;
-    width: 180px;
+    width: 200px;
+    padding: 10px;
+    overflow-y: auto;
 }
 .navbarLink {
     display: block;
     padding:  0 10px;
-    margin: 20px 0;
+    margin: 15px 0;
     letter-spacing: 2px;
     text-decoration: none;
     color: #F1C40F;
     position: relative;
-    width: 160px;
+    width: 180px;
+    cursor: pointer;
+    font-size: 20px;
 }
 .navbarLink::after{
     transition: width 0.5s ease;
@@ -42,11 +74,11 @@ nav {
     position: absolute;
     background-color:#F1C40F;
     left: 10px;
-    top: 30px;
+    top: 25px;
 }
 
 .navbarLink:hover::after{
-    width: 160px;
+    width: 180px;
     
 }
 
@@ -58,7 +90,7 @@ nav {
     visibility: hidden;
     transition: width 0.5s ease;
     width: 0;
-    margin-left: 201px;
+    margin-left: 301px;
     position: absolute;
     background-color: black;
     top: 0;
@@ -78,10 +110,14 @@ nav {
 
 .storeDropdown {
     display: flex;
-    width: 100%;
+    width: 70%;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
+}
+
+.store {
+    flex-direction: column;
 }
 
 .storeDropdown a {
@@ -90,5 +126,152 @@ nav {
 }
 
 .storeDropdown a:hover {
-    color: yellow;
+    color: #F1C40F;
+}
+.line {
+    width: 190px;
+    background-color: Black;
+    padding: 0 5px;
+    border-bottom: 3px solid #F1C40F;
+    z-index: 61;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+i {
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  -webkit-transition: all 0.1s ease;
+  -o-transition: all 0.1s ease;
+  transition: all 0.1s ease;
+}
+
+.up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+.filter {
+    padding: 0 5px;
+    transition: 0.3s;
+    transition-delay: 0.1s;
+    z-index: 60;
+    max-height: 210px;
+    overflow: auto;
+}
+
+.hideFilter {
+  transform: translateY(-100%);
+
+}
+
+.showFilter {
+  transform: translateY(0);
+}
+
+.showContent {
+  display: block;
+}
+.hideContent {
+  display: none;
+}
+
+.navbarLinks {
+  z-index: 61;
+  background: black;
+  
+}
+
+
+
+/* The container */
+.container {
+    display: flex;
+    position: relative;
+    padding-left: 35px;
+    margin: 4px 0;
+    cursor: pointer;
+    font-size: 14px;
+    height: 18px;
+    align-items: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    transition: all 0.7s ease;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 12px;
+    width: 12px;
+    background-color: whitesmoke;
+    border: solid 3px transparent;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .container:hover input ~ .checkmark {
+    border: solid 3px #F1C40F;
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  .container input:checked ~ .checkmark {
+    background-color: #F1C40F;
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+  }
+  
+  /* Show the checkmark when checked */
+  .container input:checked ~ .checkmark:after {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  /* Style the checkmark/indicator */
+  .container .checkmark:after {
+    left: 3px;
+    top: 1px;
+    width: 3px;
+    height: 6px;
+    border: solid whitesmoke;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+  
+
+@media screen and (max-width: 700px){
+  nav {
+      display: none;
+  }
+  
 }

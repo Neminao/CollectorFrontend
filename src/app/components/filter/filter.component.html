@@ -1,4 +1,8 @@
-<div class='navbarInnerContainer' >
-    <img class='navbarInnerImg' />
-    <button class='navbarInnerLink' (click)='onSubmit()'>{{brand}}</button>
+<div [ngClass]="{'navbarInnerContainer': brand, 'navbarInnerContainerStore': store}" >
+    <a [routerLink]="brand ? ['/products', brand.name, 1] : ['/store', store.name, 1]">
+        <div [ngClass]="{'navbarInnerImgStoreContainer': store}">
+        <img [ngClass]="{'navbarInnerImg': brand, 'navbarInnerImgStore': store}" [src]="brand ? brand.logo : store.logo" />
+    </div>
+    </a>
+    <button class='navbarInnerLink' (click)='onSubmit()'>{{brand ? brand.name : store.name}}</button>
 </div>

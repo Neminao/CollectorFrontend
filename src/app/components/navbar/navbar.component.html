@@ -1,29 +1,151 @@
-<nav id='nav' (click)="navbarClick($event)">
+<nav id="nav" (click)="navbarClick($event)">
   <div class="navbarLogo">
     <h1>{{ title }}</h1>
   </div>
-  <div [ngClass]="showDropdown?'dropdown dropdownShow':'dropdown'">
-      <div class='storeDropdown' [style.width.px]='width'>
-    <app-filter brand="adidas"></app-filter>
-    <app-filter brand="Nike"></app-filter>
-    <app-filter brand="Puma"></app-filter>
-    <app-filter brand="RANG"></app-filter>
-    <app-filter brand="Kappa"></app-filter>
-    <app-filter brand="Silver"></app-filter>
-    <app-filter brand="Reebok"></app-filter>
-    <app-filter brand="Ellesse"></app-filter>
-    <app-filter brand="Slazenger"></app-filter>
-  </div>
-  </div>
-  <div [ngClass]="showDropdownStore?'dropdown dropdownShow':'dropdown'">
-    <div class='storeDropdown' [style.width.px]='width'>
-      <a routerLink="/products/all" >Planeta</a>
+  <div [ngClass]="showDropdown ? 'dropdown dropdownShow' : 'dropdown'">
+    <div class="storeDropdown" [style.width.px]="width">
+      <app-filter *ngFor="let brand of brands" [brand]="brand"></app-filter>
     </div>
+  </div>
+  <div [ngClass]="showDropdownStore ? 'dropdown dropdownShow' : 'dropdown'">
+    <div class="storeDropdown store" [style.width.px]="width">
+      <app-filter *ngFor="let store of stores" [store]="store"></app-filter>
     </div>
-  <div class='navbarItems'>
-    <a class='navbarLink' routerLink="/">Home</a>
-    <a class='navbarLink' routerLink="/products/all" >All products</a>
-    <a class='navbarLink' id='brands' (click)="setShowDropdown($event)">Brands</a>
-    <a class='navbarLink' id='stores' (click)="setShowDropdown($event)">Shops</a>
+  </div>
+  <div class="navbarItems">
+    <div class="navbarLinks">
+      <a class="navbarLink" routerLink="/">Home</a>
+      <a class="navbarLink" routerLink="/products/all/1">All products</a>
+      <a class="navbarLink" id="brands" (click)="setShowDropdown($event)"
+        >Brands</a
+      >
+      <a class="navbarLink" id="stores" (click)="setShowDropdown($event)"
+        >Shops</a
+      >
+      <a class="navbarLink" routerLink="favorites">favorites</a>
+    </div>
+
+    <div class="line" (click)="changeBrandFilter()">Brand<i [ngClass]="{ up: showBrandFilter, down: !showBrandFilter }"></i></div>
+    <div
+      class="filter"
+      [ngClass]="{
+        showFilter: showBrandFilter,
+        hideFilter: !showBrandFilter
+      }"
+    >
+    
+    <div [ngClass]="{ showContent: showBrandFilter, hideContent: !showBrandFilter }">
+      <div *ngFor="let filter of filtersB">
+        <label class="container"
+          >{{ filter }}
+          <input
+            type="checkbox"
+            id='brand'
+            name="{{ filter }}"
+            value="{{ filter }}"
+            [checked]="isChecked(filter)"
+            (change)="setFilter($event)"
+          />
+          <span class="checkmark"></span>
+        </label>
+      </div>
+      </div>
+    </div>
+
+
+    <div class="line" (click)="changeGenderFilter()">Gender<i [ngClass]="{ up: showGenderFilter, down: !showGenderFilter }"></i></div>
+    <div
+      class="filter"
+      [ngClass]="{
+        showFilter: showGenderFilter,
+        hideFilter: !showGenderFilter
+      }"
+    >
+    <div [ngClass]="{ showContent: showGenderFilter, hideContent: !showGenderFilter }">
+      <div *ngFor="let filter of filtersG">
+        <label class="container"
+          >{{ filter }}
+          <input
+            type="checkbox"
+            id='filter'
+            name="{{ filter }}"
+            value="{{ filter }}"
+            [checked]="isChecked(filter)"
+            (change)="setFilter($event)"
+          />
+          <span class="checkmark"></span>
+        </label>
+      </div>
+      </div>
+    </div>
+    <div class="line" (click)="changeTypeFilter()">Type<i [ngClass]="{ up: showTypeFilter, down: !showTypeFilter }"></i></div>
+    <div
+      class="filter"
+      [ngClass]="{ showFilter: showTypeFilter, hideFilter: !showTypeFilter }"
+    >
+      <div [ngClass]="{ showContent: showTypeFilter, hideContent: !showTypeFilter }">
+        <div *ngFor="let filter of filtersT">
+          <label class="container"
+            >{{ filter }}
+            <input
+              type="checkbox"
+              id='filter'
+              name="{{ filter }}"
+              value="{{ filter }}"
+              [checked]="isChecked(filter)"
+              (change)="setFilter($event)"
+            />
+            <span class="checkmark"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="line" (click)="changeRangeFilter()">price range<i [ngClass]="{ up: showRangeFilter, down: !showRangeFilter }"></i></div>
+    <div
+      class="filter"
+      [ngClass]="{ showFilter: showRangeFilter, hideFilter: !showRangeFilter }"
+    >
+    <div [ngClass]="{ showContent: showRangeFilter, hideContent: !showRangeFilter }">
+      <table>
+        <tbody>
+          <tr>
+            <td>
+              Min.
+            </td>
+            <td>
+              Max.
+            </td>
+            <td>
+              </td>
+          </tr>
+          <tr>
+            <td>
+              <select [(ngModel)]="minSelected">
+                <option *ngFor="let op of options" [ngValue]="op">{{
+                  op
+                }}</option>
+              </select>
+            </td>
+            <td>
+              <select [(ngModel)]="maxSelected">
+                <option *ngFor="let op of options" [ngValue]="op">{{
+                  op
+                }}</option>
+              </select>
+            </td>
+            <td>rsd.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+      <div>
+        <button style="float: right" class="resetBtn" (click)="applyRange()">
+          apply
+        </button>
+      </div>
+    </div>
+    <div>
+      <button class="resetBtn" (click)="resetFilters()">reset filters</button>
+    </div>
   </div>
 </nav>

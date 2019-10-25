@@ -1,0 +1,104 @@
+<div class="carousel">
+  <div class="carouselWrapper" (swipe)="onSwipe($event)">
+    <app-carousel-item
+      [ngStyle]="{ transform: 'translateY(' + $speed + 'px)' }"
+      [ngClass]="{
+        'hidden moveUp ': !movedown,
+        'small moveDown': movedown,
+        animate: movedown || moveup
+      }"
+      class="item hTop"
+      [item]="items[n - 3]"
+    >
+    </app-carousel-item>
+    <app-carousel-item
+      [ngClass]="{
+        small: !movedown && !moveup,
+        'hidden moveUp': moveup,
+        'medium moveDown': movedown,
+        animate: movedown || moveup
+      }"
+      class="item sTop"
+      [item]="items[n - 2]"
+    >
+    </app-carousel-item>
+    <app-carousel-item
+      [ngClass]="{
+        medium: !movedown && !moveup,
+        'small moveUp': moveup,
+        'large moveDown': movedown,
+        animate: movedown || moveup
+      }"
+      class="item mTop"
+      [item]="items[n - 1]"
+    >
+    </app-carousel-item>
+    <app-carousel-item
+      [ngClass]="{
+        large: !movedown && !moveup,
+        medium: movedown || moveup,
+        moveUp: moveup,
+        moveDown: movedown,
+        animate: movedown || moveup
+      }"
+      class="item largePos"
+      [item]="items[n]"
+    >
+    </app-carousel-item>
+    <app-carousel-item
+      [ngClass]="{
+        medium: !moveup && !movedown,
+        'large moveUp': moveup,
+        'small moveDown': movedown,
+        animate: movedown || moveup
+      }"
+      class="item mBot"
+      [item]="items[n + 1]"
+    >
+    </app-carousel-item>
+    <app-carousel-item
+      [ngClass]="{
+        small: !moveup && !movedown,
+        'medium moveUp': moveup,
+        'hidden moveDown': movedown,
+        animate: movedown || moveup
+      }"
+      class="item sBot"
+      [item]="items[n + 2]"
+    >
+    </app-carousel-item>
+    <app-carousel-item
+      [ngClass]="{
+        hidden: !moveup,
+        'small moveUp': moveup,
+        animate: movedown || moveup
+      }"
+      class="item hBot"
+      [item]="items[n + 3]"
+    >
+    </app-carousel-item>
+    <button class="downButton" (click)="moveDown()">
+      <span><i class="iconDown"></i></span>
+    </button>
+    <button class="upButton" (click)="moveUp()">
+      <span><i class="iconUp"></i></span>
+    </button>
+  </div>
+  <div class="carouselBrand">
+    <h1>
+      <a [routerLink]="['/products', items[n].name, 1]"
+        ><img [src]="items[n].logo" [alt]="items[n].name"
+      /></a>
+    </h1>
+  </div>
+  <div *ngIf="products" class="displayContainer">
+    <div *ngFor="let product of products">
+      <div class="productContainer" (click)='setFilter(product.title)'>
+        
+          <img  class='backgroundImg' [src]="product.link" />
+          <h4>{{ product.title }}</h4>
+        
+      </div>
+    </div>
+  </div>
+</div>

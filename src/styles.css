@@ -1,6 +1,51 @@
 /* You can add global styles to this file, and also import other style files */
-body {
-    background-color: black;
-    font-family: 'Roboto Mono', monospace;
-    color: whitesmoke;
+html {
+  height: 100%;
 }
+body {
+  background: linear-gradient(65deg, black, black, rgb(51, 51, 51), rgb(51, 51, 51), #d87093, #F1C40F);
+  background: #000000;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+background-color: black;
+background: url(../src/assets/peter-osmenda-20K-JZ2ppbE-unsplash.jpg);
+background-size: cover;
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-position: center;
+  font-family: "Roboto Mono", monospace;
+  color: whitesmoke;
+  scrollbar-color: #F1C40F transparent;
+  scrollbar-width: thin;
+  text-transform: lowercase;
+  min-height: 100%;
+  margin: 0;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: palevioletred;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #F1C40F;
+}
+
+a {
+  cursor: pointer;
+}
+
+
+html, body { height: 100%;}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

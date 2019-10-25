@@ -18,7 +18,7 @@ export class SearchFormComponent implements OnInit {
     // this.search.emit({term: this.term});
     const searchTerm = this.term;
     this.router.navigateByUrl('/', {skipLocationChange: true}).then(() =>
-    this.router.navigate(['products/search', searchTerm]));
+    this.router.navigate(['products/search', searchTerm, 1]));
     // this.router.navigate(['products/search', searchTerm]);
   }
 

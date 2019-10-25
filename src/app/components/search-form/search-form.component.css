@@ -32,3 +32,9 @@
     top: 10px;
     left: 10px;
 }
+
+@media screen and (max-width: 700px) {
+    .searchForm input[type='text'] {
+        width: 100%
+    }
+}

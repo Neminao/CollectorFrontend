@@ -1,0 +1,8 @@
+.carouselItem a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.carouselItem a:hover {
+    color: whitesmoke;
+}

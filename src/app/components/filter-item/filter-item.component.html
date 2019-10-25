@@ -1,0 +1,12 @@
+<label class="container"
+  >{{ filter }}
+  <input
+    type="checkbox"
+    id="brand"
+    name="{{ filter }}"
+    value="{{ filter }}"
+    [checked]="isCheckedParent()"
+    (change)="setFilterParent($event)"
+  />
+  <span class="checkmark"></span>
+</label>

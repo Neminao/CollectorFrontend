@@ -1,0 +1,18 @@
+.favoritesContainer {
+    margin-left: 301px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 0 10px 10px 10px;
+}
+
+.favoritesItems {
+    width: 95%;
+}
+
+@media screen and (max-width: 700px){
+    .favoritesContainer{
+        margin-left: 10%;
+    }
+}

@@ -1,0 +1,38 @@
+<div [ngStyle]="{'display': (hide) ? 'none':'flex'}" class="favoritesWrapper">
+    <h3>
+        <a [routerLink]="['/item', product[0].productCode]">
+        {{product[0].productName}}
+        </a>
+    </h3>
+    <div class="favoritesInfo">
+    <div>
+    <img class="favoritesImg" src="{{product[0].productImgLink}}"/>
+    </div>
+    <div class="favoritesDetails">
+        <div>
+                {{product[0].productCode}}
+        </div>
+        <div>
+                {{product[0].productGender}}
+        </div>
+        <div>
+                {{product[0].productType}}
+        </div>
+    </div>
+  <div class="favoritesPrices" >
+      <ul> 
+          <li>
+              <div>current price</div>
+              <div>regular price</div>
+              <div>visit store</div>
+          </li>
+          <li *ngFor="let data of product">
+              <div>{{ data.productPrice }} rsd</div>
+              <div>{{ data.productRegularPrice }} rsd</div>
+              <div><a (click)="openLink(data.productLink)"> <img class='miniLogo' [src]="logos[data.productStore]" /></a></div>
+          </li>
+      </ul>   
+  </div>
+</div>
+<button class='favoritesBtn' (click)="removeFromFavorites()">Remove</button>
+</div>

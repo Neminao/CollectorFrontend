@@ -1,0 +1,239 @@
+nav {
+    display: none;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background: palevioletred;
+    z-index: 100;
+    transform: translateX(-90%);
+    transition: all 0.7s ease;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+table {
+  width: 100%;
+  font-size: 14px;
+}
+select {
+  width: 100%;
+  color: palevioletred;
+  background: #f1c40f;
+  border: 2px solid #f1c40f;
+  font-family: 'Roboto Mono', sans-serif;
+  font-weight: bold;
+}
+option::selection{
+  background: whitesmoke;
+}
+.open {
+    position: absolute;
+    right: 0;
+    text-orientation: upright;
+    writing-mode: vertical-rl;
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 50%;
+    margin-top: -40px;
+    height: 80px;
+    color: #f1c40f;
+}
+.showNav {
+    transform: translateX(0);
+    background: #f1c40f;
+}
+.hideNav {
+    transform: translateX(-90%);
+}
+
+.navbarLink {
+    text-decoration: underline;
+    color: palevioletred;
+    font-size: 20px;
+    cursor: pointer;
+}
+.navbarLink:hover {
+    color: whitesmoke;
+}
+
+.dropdown {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    transform: translateY(-100%);
+    background: palevioletred;
+    color: #f1c40f;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.7s ease;
+}
+.dropdown a {
+    color: inherit;
+}
+.dropdown a:hover {
+    color: whitesmoke;
+}
+.dropdownShow {
+    display: flex;
+    transform: translateY(0);
+}
+
+
+.filterDropdown {
+    justify-content: center;
+}
+
+.line {
+  width: 190px;
+  background-color: palevioletred;
+  padding: 0 5px;
+  border-bottom: 3px solid #F1C40F;
+  z-index: 61;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+i {
+border: solid #F1C40F;
+border-width: 0 3px 3px 0;
+display: inline-block;
+padding: 3px;
+}
+
+.up {
+transform: rotate(-135deg);
+-webkit-transform: rotate(-135deg);
+}
+
+.down {
+transform: rotate(45deg);
+-webkit-transform: rotate(45deg);
+}
+
+.filter {
+  padding: 0 5px;
+  z-index: 60;
+  max-height: 210px;
+  overflow: auto;
+  width: 200px;
+}
+
+.hideFilter {
+transform: translateY(-100%);
+
+}
+
+.showFilter {
+transform: translateY(0);
+}
+
+.showContent {
+display: block;
+}
+.hideContent {
+display: none;
+}
+
+/* The container */
+.container {
+    display: flex;
+    position: relative;
+    padding-left: 35px;
+    margin: 4px 0;
+    cursor: pointer;
+    font-size: 14px;
+    height: 18px;
+    align-items: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    transition: all 0.7s ease;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 12px;
+    width: 12px;
+    background-color: whitesmoke;
+    border: solid 3px transparent;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .container:hover input ~ .checkmark {
+    border: solid 3px #F1C40F;
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  .container input:checked ~ .checkmark {
+    background-color: #F1C40F;
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+  }
+  
+  /* Show the checkmark when checked */
+  .container input:checked ~ .checkmark:after {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  /* Style the checkmark/indicator */
+  .container .checkmark:after {
+    left: 3px;
+    top: 1px;
+    width: 3px;
+    height: 6px;
+    border: solid whitesmoke;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+  .filterBtn {
+      height: 40px;
+      border: none;
+      border-radius: 2px;
+      width: 120px;
+      font-size: 15px;
+      font-weight: bold;
+      color: palevioletred;
+      background: #F1C40F;
+      margin-top: 15px;
+  }
+
+@media screen and (max-width: 700px){
+    nav{
+        display: flex;
+    }
+}

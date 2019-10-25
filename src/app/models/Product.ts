@@ -9,4 +9,5 @@ export class Product {
     productStore: string;
     productPrice: string;
     productRegularPrice: string;
+    productGender: string;
 }

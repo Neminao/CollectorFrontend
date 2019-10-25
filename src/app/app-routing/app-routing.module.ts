@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from '../components/dashboard/dashboard.component';
 import { ProductsContainerComponent } from '../components/products-container/products-container.component';
 import { ProductDisplayComponent } from '../components/product-display/product-display.component';
+import { FavoritesDashboardComponent } from '../components/favorites-dashboard/favorites-dashboard.component';
 const routes: Routes = [
   {
     path: '',
@@ -12,13 +13,13 @@ const routes: Routes = [
   {
     path: 'products',
     children: [
-      {path: 'all', component: ProductsContainerComponent},
+      {path: 'all/:page', component: ProductsContainerComponent},
       {
-      path: ':productBrand',
+      path: ':productBrand/:page',
       component: ProductsContainerComponent
       },
       {
-      path: 'search/:searchTerm',
+      path: 'search/:searchTerm/:page',
       component: ProductsContainerComponent,
       runGuardsAndResolvers: 'always'
       }
@@ -27,6 +28,16 @@ const routes: Routes = [
   {
     path: 'item/:productCode',
     component: ProductDisplayComponent,
+    runGuardsAndResolvers: 'always'
+  },
+  {
+    path: 'store/:productStore/:page',
+    component: ProductsContainerComponent,
+    runGuardsAndResolvers: 'always'
+  },
+  {
+    path: 'favorites',
+    component: FavoritesDashboardComponent,
     runGuardsAndResolvers: 'always'
   }
 ];

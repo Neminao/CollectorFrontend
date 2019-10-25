@@ -1,0 +1,108 @@
+.favoritesWrapper {
+    margin: 10px 0;
+    border: 1px solid #F1C40F;
+    width: 95%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background: rgba(0, 0, 0, 0.329);
+}
+.miniLogo{
+    height: 30px;
+    width: 40px;
+    object-fit: contain;
+    object-position: center;
+  }
+
+h3 {
+    margin-top: 0;
+    color: #F1C40F
+}
+
+h3 a {
+    color: #F1C40F;
+    text-decoration: none;
+}
+
+li div {
+    display: flex;
+    align-items: center;
+}
+
+
+.favoritesImg {
+    height: 160px;
+    width: 160px;
+    margin-right: 20px;
+    object-fit: contain;
+}
+
+.favoritesDetails {
+    width: 25%;
+}
+
+.favoritesPrices {
+    width: 35%;
+}
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    text-align: right;
+}
+
+.favoritesInfo {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.favoritesBtn {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background: none;
+    border: none;
+    color: palevioletred;
+}
+.favoritesBtn:hover {
+    color: whitesmoke;
+}
+a {
+    text-decoration: none;
+    color: palevioletred;
+}
+
+a:hover{
+    color: whitesmoke;
+}
+
+
+@media screen and (max-width: 700px){
+    .favoritesWrapper{
+        padding: 5px;
+    }
+    .favoritesInfo{
+        flex-direction: column;
+        align-items: center;
+    }
+    .favoritesDetails {
+        width: 100%;
+    }
+    .favoritesPrices{
+        width: 100%;
+    }
+    h3{
+        margin-top: 25px;
+    }
+
+}

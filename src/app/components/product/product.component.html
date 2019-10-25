@@ -1,35 +1,40 @@
 <div class="product-item-wrapper">
-  <a href="{{ product.productLink }}">
+  <div id='img' class="imgContainer" (click)="goToPage($event)">
+      <img id='img' class='productImg' src="{{ product.productsJSON[0].productImgLink }}" />
+      <button id='btn' (click)="addToFavorites()" class="favButton">
+          <span id='btn'><i id='btn' [ngClass]="isFav ? 'heartFilled' : 'heartEmpty'"></i></span>
+      </button>
     
-    <div class="imgContainer">
-      <img src="{{ product.productImgLink }}" />
+  </div>
+  
+
+  <div class="textContainer">
+    <div>
+      <a
+        [routerLink]="['/products', product.productsJSON[0].productBrand, 1]"
+        >{{ product.productsJSON[0].productBrand }}</a
+      >
     </div>
-  </a>
-  <table>
-    <tbody>
-      <tr>
-        <td>
-          <a [routerLink]="['/products', product.productBrand]">{{ product.productBrand }}</a>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <a [routerLink]="['/item', product.productCode]">{{ product.productName }}</a>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          {{ product.productPrice }} 
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <a href="/">{{ product.productStore }}</a>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+    <div>
+      <a [routerLink]="['/item', product.productCode]">{{
+        product.productsJSON[0].productName
+      }}</a>
+    </div>
+    <table>
+      <tbody>
+        <ng-container *ngFor="let data of product.productsJSON">
+          <tr *ngIf="data.productPrice">
+            <td class="rowMulti" *ngIf="data.productPrice">
+              {{ data.productPrice }} rsd
+            </td>
+            <td class="rowMulti" *ngIf="data.productPrice">
+              <a (click)="openLink(data.productLink)">{{
+                data.productStore
+              }}</a>
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
 </div>
-
-
-

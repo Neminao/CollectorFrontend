@@ -1,6 +1,21 @@
 <div>
+  <div class='tint'></div>
+  <div [ngStyle]="{'background': 'url(' + backgroundImgs[i1]+')'}" class='still'></div>
+  <div 
+  class='animated' 
+  [ngStyle]="{'background': 'url(' + backgroundImgs[i2]+')'}"
+  [ngClass]="{'vis': toggleVis, 'animate': toggleAni}"
+  ></div>
   <div>
-    <app-navbar></app-navbar>
+    <app-navbar [brands]='brands' [stores]='stores' ></app-navbar>
+    <app-mobile-navbar [brands]='brands' [stores]='stores' ></app-mobile-navbar>
+
+    <div>
+      <app-search-form  class="searchBox"
+      ></app-search-form>
+      
+      
+    </div>
   </div>
 </div>
 
